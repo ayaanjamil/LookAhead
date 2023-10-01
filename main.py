@@ -28,7 +28,7 @@ while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
         continue
-    # frame = cv2.flip(frame, 1)
+    # frame = cv2.flip(frame, 1) #enable this when the mouse is moving in opposite direction
     img_h, img_w = frame.shape[:2]
     rgb_frame = mediapipe.Image(image_format=mediapipe.ImageFormat.SRGB, data=frame)
 
@@ -69,17 +69,6 @@ while cap.isOpened():
         """
 
         blendshapes = detection_result.face_blendshapes
-        # print(blendshapes)
-        """
-        highest_score = -1  # A low initial score
-        highest_category_name = ''
-        # Iterate through the categories to find the highest score
-        for category in blendshapes[0]:
-            if category.score > highest_score:
-                highest_score = category.score
-                highest_category_name = category.category_name
-        print(highest_category_name)
-        """
 
         if blendshapes[0][14].score > 0.50: # and blendshapes[0][15].score > 0.70
             pyautogui.moveRel(-30, 0)
