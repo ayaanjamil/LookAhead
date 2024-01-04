@@ -10,7 +10,7 @@ And run main.py.
 
 
 This uses mediapipe's blendshapes to determine where the user is looking and then uses pyautogui to move mouse in that direction.
-Also gives normalised X and Y iris positions of each iris (wrt each eye) (commented out in main.py) which you users can use however they want.
+Also gives normalised X and Y iris positions of each iris (wrt each eye) (commented out in main.py) which you can use however you want.
 
 ![Screen Recording 2023-11-29 at 13 59 07](https://github.com/ayaanjamil/LookAhead/assets/39400870/e3f66f5d-4170-40ca-8204-f529cf10f24a)
 
