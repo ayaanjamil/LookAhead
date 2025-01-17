@@ -1,15 +1,26 @@
 # LookAhead
+Inspired by [WebGazer.js](https://webgazer.cs.brown.edu/), in this project, I explored accessible technology and its real-world applications.
+LookAhead allows users to predict gaze positions with iris coordinates entirely in Python.
 
-Iris tracking based mouse controls
+This project consists of **two** core parts:
+1. **Blendshape-Based Gaze Prediction**: A basic approach that used predefined facial landmarks for gaze estimation.
+2. **On-the-Go Model Training**: A system that continuously learns and adapts to user-specific gaze behavior through live interactions (mouse clicks).
 
-```py
-$ pip install -r requirements.txt
-```
+The simpler version uses blendshapes built into Mediapipe to detect the direction in which the user is looking, and executes a left-click when the user puckers their lips.
 
-And run main.py.
+The more advanced (and frankly, cooler) version lets users interact with a set of dots on the screen, capturing their mouse position and iris data with each click. With every click, two regression models (one for x-coor and the other for y-coor) are trained incrementally with this new data. The system then predicts gaze positions based on real-time iris data and visualises them as a blue circle on the screen.
 
+---
+![](/images/lookahead-train.jpg)
+*Training the model by clicking dots on the screen.*
 
-This uses mediapipe's blendshapes to determine where the user is looking and then uses pyautogui to move mouse in that direction.
-Also gives normalised X and Y iris positions of each iris (wrt each eye) (commented out in main.py) which you can use however you want.
+![](/images/lookahead-test.jpg)
+*Predicted iris position vs actual mouse cursor location*
 
-![Screen Recording 2023-11-29 at 13 59 07](https://github.com/ayaanjamil/LookAhead/assets/39400870/e3f66f5d-4170-40ca-8204-f529cf10f24a)
+---
+Technologies used:
+- Python
+- Mediapipe Iris
+- OpenCV
+- Pygame
+- Scikit-learn
